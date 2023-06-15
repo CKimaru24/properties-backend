@@ -1,0 +1,2 @@
+class Compose < ApplicationRecord
+end
