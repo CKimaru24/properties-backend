@@ -12,6 +12,7 @@ class Landlord < ApplicationRecord
     has_many :listings
     has_many :tenants
     has_many :managers
+    has_many :agents
   
 end
   

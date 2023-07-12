@@ -10,7 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_30_232634) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_11_211209) do
+  create_table "agents", force: :cascade do |t|
+    t.string "fullname"
+    t.string "dob"
+    t.string "gender"
+    t.string "phonenumber"
+    t.string "emailaddress"
+    t.string "address"
+    t.string "city"
+    t.string "country"
+    t.string "workhistory"
+    t.string "certifications"
+    t.string "education"
+    t.string "marketingexperience"
+    t.string "onlinemarketing"
+    t.string "socialmediapromotion"
+    t.string "communicationskills"
+    t.string "interpersonalskills"
+    t.string "marketingknowledge"
+    t.string "technologyskills"
+    t.string "workinghours"
+    t.string "additionalcomments"
+    t.string "agreement"
+    t.integer "landlord_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["landlord_id"], name: "index_agents_on_landlord_id"
+  end
+
   create_table "bookings", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -148,6 +176,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_30_232634) do
     t.index ["listing_id"], name: "index_tenants_on_listing_id"
   end
 
+  add_foreign_key "agents", "landlords"
   add_foreign_key "listings", "landlords"
   add_foreign_key "managers", "landlords"
   add_foreign_key "managers", "listings"

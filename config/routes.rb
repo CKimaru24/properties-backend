@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :agents, only: [:index, :create, :destroy, :show, :update]
   resources :managers, only: [:index, :create, :destroy, :show, :update]
   resources :maintenances, only: [:index, :create, :destroy, :show]
   resources :tenants, only: [:index, :create, :destroy, :show, :update]
